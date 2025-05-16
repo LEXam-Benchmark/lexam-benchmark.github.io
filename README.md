@@ -1,5 +1,7 @@
 # LEXam
 
+[https://lexam-benchmark.github.io/](https://lexam-benchmark.github.io/)
+
 This website is adapted from [Nerfies website](https://nerfies.github.io).
 
 # Website License
