@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Evaluating mathematical reasoning of foundation models in visual contexts">
+  <meta name="keywords" content="MathVista, Math Vista">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> FVEL: Interactive Formal Verification Environment with Large Language Models via Theorem Proving</title>
+
+  <link rel="icon" href="./static/images_fvel/fveler_logo.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="stylesheet" href="./static/css/leaderboard.css"> -->
+
+  <!-- <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bulma.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script> -->
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <!-- <script src="./static/js/explorer-index.js"></script> -->
+  <script src="./static/js/question_card.js"></script>
+
+  <!-- <script src="./static/js/leaderboard_testmini.js"></script>   -->
+  <script src="./data/results/output_folders.js" defer></script>
+  <script src="./data/results/model_scores.js" defer></script>
+
+  <script src="./visualizer/data/data_public.js" defer></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title is-bold">
+            <img src="static/images_fvel/fveler_logo.png" style="width:2.5em;vertical-align: middle" alt="Logo"/>
+            <span class="mathvista" style="vertical-align: middle">FVEL & FVELer</span>
+            </h1>
+          <h2 class="subtitle is-3 publication-subtitle">
+            Interactive Formal Verification Environment with Large Language Models via Theorem Proving
+            <!-- <br> -->
+            <!-- with GPT-4V, Bard, and Other Large Multimodal Models -->
+          </h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://openreview.net/profile?id=~Xiaohan_Lin2">Xiaohan Lin*</a><sup style="color:#6fbf73;">1</sup><sup style="color:#000000;">,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=flOBrd8AAAAJ&hl">Qingxing Cao*</a><sup style="color:#6fbf73;">1</sup>,</span>
+            <span class="author-block">
+              <a href="https://eleanor-h.github.io/">Yinya Huang*</a><sup style="color:#ed4b82;">2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://openreview.net/profile?id=~Haiming_Wang1">Haiming Wang*</a><sup style="color:#018328">3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=uIW6d6AAAAAJ&hl=zh-CN">Jianqiao Lu</a><sup style="color:#ffac33">4</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="">Zhengying Liu</a><sup style="color:#ed4b82">5</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Linqi Song</a><sup style="color:#6fbf73;">2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://lemondan.github.io/">Xiaodan Liang</a><sup style="color:#ffac33">1</sup>,<sup style="color:#033cfb">6</sup>,<sup style="color:#68d8fb">7</sup>,
+            </span>            
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup style="color:#6fbf73;">1</sup>Shenzhen Campus of Sun Yat-sen University,</span>
+            <span class="author-block"><sup style="color:#ed4b82">2</sup>City Univeristy of Hong Kong,</span><br>
+            <span class="author-block"><sup style="color:#9400D3">3</sup>Sun Yat-sen University,</span>
+            <span class="author-block"><sup style="color:#ffac33">4</sup>The University of Hong Kong</span><br>
+            <span class="author-block"><sup style="color:#f41c1c">5</sup>Huawei Noah's Ark Lab</span>
+            <span class="author-block"><sup style="color:#033cfb">6</sup>MBZUAI</span>
+            <span class="author-block"><sup style="color:#68d8fb">7</sup>DarkMatter AI Research</span>
+          </div>
+        
+         
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+
+              <span class="link-block">
+                <a href="https://github.com/FVELER"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <!-- <i class="far fa-images"></i> -->
+                      <p style="font-size:18px">🤗</p>
+                      <!-- 🔗 -->
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span> 
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container" style="margin-bottom: 2vh;">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Introduction</h2>
+        <div class="content has-text-justified">
+          <p>
+            Formal verification (FV) has witnessed growing significance with current emerging program synthesis by the evolving large language models (LLMs). However, current formal verification mainly resorts to symbolic verifiers or hand-craft rules, resulting in limitations for extensive and flexible verification. On the other hand, formal languages for automated theorem proving, such as Isabelle, as another line of rigorous verification, are maintained with comprehensive rules and theorems. In this project, we propose <span class="mathvista">FVEL</span>, an interactive Formal Verification Environment with LLMs. Specifically, <span class="mathvista">FVEL</span> transforms a given code to be verified into Isabelle, and then conducts verification via neural automated theorem proving with an LLM. The joined paradigm leverages the rigorous yet abundant formulated and organized rules in Isabelle and is also convenient for introducing and adjusting cutting-edge LLMs. To achieve this goal, we extract a large-scale <span class="mathvista">FVELer</span>. The <span class="mathvista">FVELer</span> dataset includes code dependencies and verification processes that are formulated in Isabelle, containing 758 theories, 29,125 lemmas, and 200,646 proof steps in total with in-depth dependencies. We benchmark <span class="mathvista">FVELer</span> in the <span class="mathvista">FVEL</span> environment by first fine-tuning LLMs with <span class="mathvista">FVELer</span> and then evaluating them on Code2Inv and SV-COMP. The results show that <span class="mathvista">FVEL</span> with <span class="mathvista">FVELer</span> fine-tuned Llama3-8B solves 17.39% (69→81) more problems, and Mistral-7B 12% (75→84) more problems in SV-COMP. And the proportion of proof errors is reduced.</b>.
+          </p>          
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</div>
+</section>
+
+
+<!-- ENVIRONMENT SECTION -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <!-- <h1 class="title is-1 mathvista"><img src="static/images/mathverse.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>MathVista Dataset</h1> -->
+  <h1 class="title is-1 mathvista">
+    <img src="static/images_fvel/fveler_logo.png" style="width:1em;vertical-align: middle" alt="Logo"/>
+    <span class="mathvista" style="vertical-align: middle">FVEL Environment</span>
+  </h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+
+        <div class="column is-four-fifths">
+        <h2 class="title is-3">Workflow</h2>
+        <div class="content has-text-justified">
+          <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images_fvel/overview_fvel_env/fvel_figure1.png" alt="algebraic reasoning" width="100%"/>
+                <p> <span class="mathvista">FVEL</span> workflow.
+              </div>
+            </div>
+          <!-- </div> -->
+          <p>            
+            The main idea of the <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> environment is to provide an interactive environment with large language models (LLMs) that leverage rigorous theorem-proving processes. The input of <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> environment is a code to be verified. Specifically, we currently verify C code and conduct a pilot study on our new framework. Moreover, the input format is flexible as one can choose to input an ensemble of C code and its corresponding SIMPL and/or Isabelle content as supplements. The output of <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> is the code verification result.
+          </p>
+
+          <p>          
+          <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> interacts with a large language model to achieve the verification. At the initial step of interaction (S<sub>0</sub>),  <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> transforms the input C code into facts, and then provides the facts to the LLM. The LLM then generates a lemma in Isabelle as a formal description of the code specification. In this step, a code verification problem is transformed into an ATP problem. As a result, <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> can leverage the LLMs theorem-proving techniques and rigorous ATP validation. At the follow-up interaction steps (S<sub>i</sub>, i ≥ 1), the LLM is prompted to generate proof steps, while  <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> incorporates an Isabell prover to provide feedback such as error messages to the LLM. The process terminates until a whole proof is generated. If the proof success in proving the lemma, <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> outputs "success", otherwise outputs "failure".
+          </p>
+
+
+
+      </div> 
+          
+        </div>
+      </div>
+    </div>
+
+</section>
+
+
+<!-- DATASET SECTION -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <!-- <h1 class="title is-1 mathvista"><img src="static/images/mathverse.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>MathVista Dataset</h1> -->
+  <h1 class="title is-1 mathvista">
+    <img src="static/images_fvel/fveler_logo.png" style="width:1em;vertical-align: middle" alt="Logo"/>
+    <span class="mathvista" style="vertical-align: middle">FVELer Dataset</span>
+  </h1>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+        <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="box m-5">
+          <div class="content has-text-centered">
+            <img src="static/images_fvel/overview_fvel_env/fvel_figure2_simp.png" alt="arithmetic reasoning" width="100%"/>
+            <p> <span class="mathvista">FVELer</span> construction. 
+          </div>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/>
+            <span class="mathvista">FVELer</span> contains transformed Isabelle theories and lemmas from C codes that support the FVEL environment for C code verification. It has two main components:
+            <ul>
+              <li><b>Theories dependencies.</b> A resource for dependencies among theories, lemmas, and c code specified by SeL4 verification. These data provide the ground-truth seL4 premises for proving the current lemma and enable a model to retrieve related statements or proof context at both the training and testing stages.</li>
+              <li><b>Lemmas from theories with their Isabelle proof states.</b> The step-wise lemmas with multiple proof states that support the Isabelle proving process in FVEL. These data on the one hand enhance LLMs with search-based/step-wise ATP while interacting with FVEL, and on the other hand, provide a benchmark for interactive formal verification.</li>
+            </ul>
+
+          </p>
+
+
+          <p>
+           
+            You can download the dataset on <a href="https://huggingface.co/datasets" target="_blank">Hugging Face Dataset</a>.
+          </p>
+
+
+          <!-- <div id="results-carousel" class="carousel results-carousel">
+          
+        </div> -->
+        </div>
+      </div> 
+      </div>
+        
+
+    <span style="margin:25pt">
+    </span>
+
+    <!-- <div class="columns is-centered m-6"> -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+        <h2 class="title is-3">Dataset statistics</h2>
+        <div class="content has-text-justified">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_fvel/overview_fvel_env/fevl_table1.png" alt="algebraic reasoning" width="60%"/>
+              <p> The statistics of <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/>
+                <span class="mathvista">FVELer</span> dataset. </p>
+            </div>
+          </div>
+        <p> 
+          <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/>
+            <span class="mathvista">FVELer</span> contains contains <b>758 theories, 29,125 lemmas, and 200,646 proof steps</b> in total with in-depth dependencies. We randomly split <span class="mathvista">FVELer</span> according to lemmas, resulting in a training set, a validation set, a test set, and an especially selected test-hard set. The test-hard set is selected from those lemmas in the three sessions <b>SysInit</b>, <b>SysInitExamples</b>, <b>LibTest</b>. Such lemmas are in higher depths in the dependency relationship, therefore they have less <i>import</i> relationships by other theories. 
+        </p>
+          <ul><li> Figures below shows the distribution of extracted theories and lemmas by it's depth. where <b>depth</b> is the degree of the theory dependency graph by the <i>import</i>  dependency relationship among the theory files.</li></ul>
+
+        <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_fvel/overview_fveler_dastaset/theorem_depth.png" alt="algebraic reasoning" width="100%"/>
+              <p> Distribution of dependency by theory </p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_fvel/overview_fveler_dastaset/lemma_depth.png" alt="arithmetic reasoning" width="100%"/>
+              <p> Distribution of dependency by lemma. </p>
+            </div>
+          </div>
+        
+          
+            <ul><li> Figure below demonstrates the distribution of intermediate proof steps of the 29,125 lemmas. It is indicated that the number of proof steps are dramatically different amount the lemmas. 12,089 out of the 29,125 lemmas can be proved via one proof step. Proof steps between 2 and 10 there are 12,957 lemmas. Therefore, over 85% of the lemmas in FVELER can be proved within 10 steps. Moreover, 28,954 out of the 29,125 lemmas can be proved within 100 steps </li></ul>
+          
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_fvel/overview_fveler_dastaset/lemma_step.pdf.png" alt="arithmetic reasoning" width="100%"/>
+              <p> The <span class="mathvista">FVELer</span> lemma distribution over step intervals. </p> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+
+    
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Dataset Examples</h2>
+        <!-- <p>Examples in <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/>
+          <span class="mathvista">FVELer</span></p> -->
+        <p align="justify">
+          <ul align="justify">
+            <li><b>sel4_extraction/</b> is a folder that has the same structure as the sel4 verification project (l4v). 
+              Each file is the extracted step-wise proof state of the corresponding l4v theory files.
+              For example, “sel4_extraction/proof/invariant-abstract/AInvs.json” is the 
+              proof state of the file l4v/proof/invariant-abstract/AInvs.thy.
+            </li>
+            <li><b>dataset_lemma_split.json</b> contains all lemmas proof steps and states, and splits them into the train, val, test, and test-hard set.</li>
+            <li><b>sel4_thy_info.json</b> contains information of all theory files, including their names, dependency relations, and lemmas.</li>
+            <li><b>sel4_session_info.json</b> contains all session information, including dependent sessions, theories, and directories.</li>
+          </ul>
+        </p>
+
+        <div id="results-carousel" class="carousel results-carousel">
+          
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_fvel/cases_dataset/C.1.1_sel4_extraction.png" alt="" width="70%"/>
+              <p><b>sel4_extraction/</b> folder example.</p>
+            </div>
+          </div>
+
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_fvel/cases_dataset/C.1.2_dataset_lemma_split_json.png" alt="" width="70%"/>
+              <p><b>dataset_lemma_split.json</b> example.</p>
+            </div>
+          </div>
+
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_fvel/cases_dataset/C.1.3_sel4_thy_info_json.png" alt="" width="70%"/>
+              <p><b>sel4_thy_info.json</b> example.</p>
+            </div>
+          </div>
+
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_fvel/cases_dataset/C.1.4_sel4_session_info_json.png" alt="" width="70%"/>
+              <p><b>sel4_session_info.json</b> example.</p>
+            </div>
+          </div>
+
+</section>
+
+
+<!-- RESULTS SECTION -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 mathvista">Formal Verification with FVEL and FVELer</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Results on Existing Foundation Models</h2>
+        
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_fvel/overview_fveler_dastaset/placeholder.png" alt="grade-lv" width="60%"/>
+              <p>[TODO] results.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div> -->
+
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <!-- <h2 class="title is-3">Visualization Examples</h2>         -->
+        <p align="justify">
+        Given a formal verificaiton case that is converted to an Isabelle lemma as the input, 
+        The upper row shows a case in which FVEL-Mistral-7B correctly applies the lemma learned from fine-tuning, thus correcting and simplifying the proof. 
+        Contrastively, Mistral-7B generates common not_eq_complement without considering a reasonable proof strategy, resulting in a failed proof. 
+        In the second case, Mistral-7B rewrites the lemma statement into “assumes” and “shows” statements, according to which gives an incorrect proof. 
+        FVEL-Mistral-7B, on the other hand, expands the brackets in the equation and then is able to derive contradiction according to “(bAND NOT b)”, 
+        and completes the proof via the contradiction of the right-hand side of the equation.
+        </p>
+
+        <div id="results-carousel" class="carousel results-carousel">          
+                    
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_fvel/cases_result/Table_4_compared_generated_proofs.png" alt="" width="100%"/>
+              <p>Generated proofs by Mistral-7B and FVEL-Mistral-7B. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- BIBTEX SECTION -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <pre><code>
+      @article{lin2024fvel,
+        author = {Lin, Xiaohan and Cao, Qingxing and Huang, Yinya and Wang, Haiming and Lu, Jianqiao and Liu, Zhengying and Song, Linqi and Liang, Xiaodan},
+        title = {{FVEL}: Interactive Formal Verification Environment with Large Language Models via Theorem Proving},
+        year = {2024}
+       }
+    </code></pre>
+  </div>
+</section>
+
+
+<!-- COLLABORATORS SECTION -->
+<section>
+  <div class="section" id="org-banners" style="display:flex">
+   <a href="https://www.sysu.edu.en/" target="_blank" rel="external">
+        <div id="logo"><img src="static/images_fvel/collaborators/logo_sysu.png" style="width:9.0em;vertical-align: middle"></div>
+    </a>
+    &emsp;&emsp;
+    <a href="https://www.cityu.edu.hk/" target="_blank" rel="external">
+        <div id="logo"><img src="static/images_fvel/collaborators/CityU_Vertical_Logo_RGB.jpg" style="width:18.0em;vertical-align: middle"></div>
+    </a>     
+  </div>
+  <div class="section" id="org-banners" style="display:flex">
+    <a href="https://www.noahlab.com.hk/" target="_blank" rel="external">
+      <div id="logo"><img src="static/images_fvel/collaborators/huawei noah.png" style="width:5.0em;vertical-align: middle"></div>
+    </a>   
+    &emsp;&emsp;
+    <a href="https://hku.hk/" target="_blank" rel="external">
+        <div id="logo"><img src="static/images_fvel/collaborators/hku-logo.png" style="width:16.0em;vertical-align: middle"></div>
+    </a>
+    &emsp;&emsp;
+    <a href="https://mbzuai.ac.ae/" target="_blank" rel="external">
+        <div id="logo"><img src="static/images_fvel/collaborators/MBZUofAI_FullName_Biligual_RGB.png" style="width:16.0em;vertical-align: middle"></div>          
+    </a>
+    &emsp;&emsp;&emsp;
+    <a href="https://www.dm-ai.com/" target="_blank" rel="external">
+        <div id="logo"><img src="static/images_fvel/collaborators/logo_dm.png" style="width:9.0em;vertical-align: middle"></div>
+    </a>    
+  </div>
+</section>
+
+
+<!-- FOOTER SECTION -->
+<footer class="footer">
+  <!-- <div class="container"> -->
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is adapted from <a href="https://mathverse-cuhk.github.io/">MathVerse</a>, <a href="https://mathvista.github.io/">MathVista</a>, and <a href="https://nerfies.github.io/">Nerfies</a>, licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+</footer>
+
+</body>
+</html>
