@@ -201,85 +201,152 @@
 <!-- DATASET SECTION -->
 <section class="hero is-light is-small">
   <div class="hero-body has-text-centered">
+    <!-- <h1 class="title is-1 mathvista"><img src="static/images/mathverse.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>MathVista Dataset</h1> -->
   <h1 class="title is-1 mathvista">
-    <img src="static/images_lexam/logo.png" style="width:1em;vertical-align: middle" alt="Logo"/>
-    <span class="mathvista" style="vertical-align: middle">LEXam Dataset</span>
+    <img src="static/images_fvel/fveler_logo.png" style="width:1em;vertical-align: middle" alt="Logo"/>
+    <span class="mathvista" style="vertical-align: middle">FVELer Dataset</span>
   </h1>
   </div>
 </section>
 
 
-        <!-- <div class="column is-four-fifths">
-          <h2 class="title is-3">Data Generation</h2>
-          <div class="content has-text-justified">
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images_lexam/collection_of_plots_new.png" alt="algebraic reasoning" width="100%"/>
-                  <p> <span class="mathvista">LEXam</span> data generation pipeline.
-                </div>
-              </div>
-        </div> 
-
-
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Dataset Overview</h2>
-          <div class="content has-text-justified">
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images_lexam/collection_of_plots_new.png" alt="algebraic reasoning" width="100%"/>
-                  <p> <span class="mathvista">LEXam</span> data generation pipeline.
-                </div>
-              </div>
-        </div>  -->
-
 <section class="section">
   <div class="container">
-
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width has-text-centered"> -->
         <div class="column is-four-fifths">
-        <h2 class="title is-3">Sample Open Question</h2>
+        <h2 class="title is-3">Overview</h2>
+        <div class="box m-5">
+          <div class="content has-text-centered">
+            <img src="static/images_lexam/collection_of_plots_new.png" alt="FVEL" width="100%"/>
+            <p> <span class="mathvista">LEXam</span> data generation pipeline. 
+          </div>
+        </div>
         <div class="content has-text-justified">
-            <div class="box m-5">
-              <div class="content has-text-centered">
-                <img src="static/images_lexam/sample_open_question_0.png" alt="algebraic reasoning" width="100%"/>
-                <p> <span class="mathvista">LEXam</span> open question sample.
-              </div>
-            </div>
-            <!-- <p> figure of open question. Several sentences describing it. </p> -->
-          <!-- <p>            
-            The main idea of the <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> environment is to provide an interactive environment with large language models (LLMs) that leverage rigorous theorem-proving processes. The input of <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> environment is a code to be verified. Specifically, we currently verify C code and conduct a pilot study on our new framework. Moreover, the input format is flexible as one can choose to input an ensemble of C code and its corresponding SIMPL and/or Isabelle content as supplements. The output of <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> is the code verification result.
-          </p>
+          <!-- <p>
+            <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/>
+            <span class="mathvista">FVELer</span> contains transformed Isabelle theories and lemmas from C codes that support the FVEL environment for C code verification. It has two main components:
+            <ul>
+              <li><b>Theories dependencies.</b> A resource for dependencies among theories, lemmas, and c code specified by SeL4 verification. These data provide the ground-truth seL4 premises for proving the current lemma and enable a model to retrieve related statements or proof context at both the training and testing stages.</li>
+              <li><b>Lemmas from theories with their Isabelle proof states.</b> The step-wise lemmas with multiple proof states that support the Isabelle proving process in FVEL. These data on the one hand enhance LLMs with search-based/step-wise ATP while interacting with FVEL, and on the other hand, provide a benchmark for interactive formal verification.</li>
+            </ul>
 
-          <p>          
-          <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> interacts with a large language model to achieve the verification. At the initial step of interaction (S<sub>0</sub>),  <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> transforms the input C code into facts, and then provides the facts to the LLM. The LLM then generates a lemma in Isabelle as a formal description of the code specification. In this step, a code verification problem is transformed into an ATP problem. As a result, <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> can leverage the LLMs theorem-proving techniques and rigorous ATP validation. At the follow-up interaction steps (S<sub>i</sub>, i ≥ 1), the LLM is prompted to generate proof steps, while  <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> incorporates an Isabell prover to provide feedback such as error messages to the LLM. The process terminates until a whole proof is generated. If the proof success in proving the lemma, <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> outputs "success", otherwise outputs "failure".
           </p> -->
 
-      </div> 
 
-
-      <h2 class="title is-3">Sample Multiple-Choice Question</h2>
-        <div class="content has-text-justified">
-            <div class="box m-5">
-              <div class="content has-text-centered">
-                <img src="static/images_lexam/sample_mcq_0.png" alt="algebraic reasoning" width="100%"/>
-                <p> <span class="mathvista">LEXam</span> multiple-choice question sample.
-              </div>
-            </div>
-          <!-- <p> figure of MC question. Several sentences describing it. </p> -->
-          <!-- <p>            
-            The main idea of the <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> environment is to provide an interactive environment with large language models (LLMs) that leverage rigorous theorem-proving processes. The input of <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> environment is a code to be verified. Specifically, we currently verify C code and conduct a pilot study on our new framework. Moreover, the input format is flexible as one can choose to input an ensemble of C code and its corresponding SIMPL and/or Isabelle content as supplements. The output of <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> is the code verification result.
-          </p>
-
-          <p>          
-          <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> interacts with a large language model to achieve the verification. At the initial step of interaction (S<sub>0</sub>),  <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> transforms the input C code into facts, and then provides the facts to the LLM. The LLM then generates a lemma in Isabelle as a formal description of the code specification. In this step, a code verification problem is transformed into an ATP problem. As a result, <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> can leverage the LLMs theorem-proving techniques and rigorous ATP validation. At the follow-up interaction steps (S<sub>i</sub>, i ≥ 1), the LLM is prompted to generate proof steps, while  <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> incorporates an Isabell prover to provide feedback such as error messages to the LLM. The process terminates until a whole proof is generated. If the proof success in proving the lemma, <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">FVEL</span> outputs "success", otherwise outputs "failure".
+          <!-- <p>
+           
+            You can download the dataset on <a href="https://github.com/FVELER/FVELerExtraction/blob/main/FVELer.zip" target="_blank">GitHub</a>.
           </p> -->
 
-      </div> 
           
+        </div>
+      </div> 
+      </div>
+        
+
+    <span style="margin:25pt">
+    </span>
+
+    <!-- <div class="columns is-centered m-6"> -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+        <h2 class="title is-3">Dataset statistics</h2>
+        <div class="content has-text-justified">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_lexam/statistics.png" alt="FVEL" width="60%"/>
+              <p> The statistics of <img src="static/images_lexam/logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/>
+                <span class="mathvista">LEXam</span> dataset statistics. </p>
+            </div>
+          </div>
+        <!-- <p> 
+          <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/>
+            <span class="mathvista">FVELer</span> contains contains <b>758 theories, 29,125 lemmas, and 200,646 proof steps</b> in total with in-depth dependencies. We randomly split <span class="mathvista">FVELer</span> according to lemmas, resulting in a training set, a validation set, a test set, and an especially selected test-hard set. The test-hard set is selected from those lemmas in the three sessions <b>SysInit</b>, <b>SysInitExamples</b>, <b>LibTest</b>. Such lemmas are in higher depths in the dependency relationship, therefore they have less <i>import</i> relationships by other theories. 
+        </p>
+          <ul><li> Figures below shows the distribution of extracted theories and lemmas by it's depth. where <b>depth</b> is the degree of the theory dependency graph by the <i>import</i>  dependency relationship among the theory files.</li></ul> -->
+
+          <!-- <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_fvel/overview_fveler_dastaset/theorem_depth.png" alt="FVEL" width="100%"/>
+              <p> Distribution of dependency by theory </p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_fvel/overview_fveler_dastaset/lemma_depth.png" alt="FVEL" width="100%"/>
+              <p> Distribution of dependency by lemma. </p>
+            </div>
+          </div> -->
+        
+          
+            <!-- <ul><li> Figure below demonstrates the distribution of intermediate proof steps of the 29,125 lemmas. It is indicated that the number of proof steps are dramatically different amount the lemmas. 12,089 out of the 29,125 lemmas can be proved via one proof step. Proof steps between 2 and 10 there are 12,957 lemmas. Therefore, over 85% of the lemmas in FVELER can be proved within 10 steps. Moreover, 28,954 out of the 29,125 lemmas can be proved within 100 steps </li></ul>
+           -->
+          
+           <!-- <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_fvel/overview_fveler_dastaset/lemma_step.pdf.png" alt="FVEL" width="100%"/>
+              <p> The <span class="mathvista">FVELer</span> lemma distribution over step intervals. </p> 
+            </div>
+          </div> -->
+
         </div>
       </div>
     </div>
+  <!-- </div> -->
+
+    
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Dataset Examples</h2>
+        <!-- <p>Examples in <img src="static/images_fvel/fveler_logo.png" style="width:2.0em;vertical-align: middle" alt="Logo"/>
+          <span class="mathvista">FVELer</span></p> -->
+        <!-- <p align="justify">
+          <ul align="justify">
+            <li><b>sel4_extraction/</b> is a folder that has the same structure as the sel4 verification project (l4v). 
+              Each file is the extracted step-wise proof state of the corresponding l4v theory files.
+              For example, “sel4_extraction/proof/invariant-abstract/AInvs.json” is the 
+              proof state of the file l4v/proof/invariant-abstract/AInvs.thy.
+            </li>
+            <li><b>dataset_lemma_split.json</b> contains all lemmas proof steps and states, and splits them into the train, val, test, and test-hard set.</li>
+            <li><b>sel4_thy_info.json</b> contains information of all theory files, including their names, dependency relations, and lemmas.</li>
+            <li><b>sel4_session_info.json</b> contains all session information, including dependent sessions, theories, and directories.</li>
+          </ul>
+        </p> -->
+
+        <div id="results-carousel" class="carousel results-carousel">
+          
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_lexam/sample_open_question_0.png" alt="" width="70%"/>
+              <p>LEXam sample open question.</p>
+            </div>
+          </div>
+
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_lexam/sample_mcq_0.png" alt="" width="70%"/>
+              <p>LEXam sample multiple-choice question.</p>
+            </div>
+          </div>
+<!-- 
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_fvel/cases_dataset/C.1.3_sel4_thy_info_json.png" alt="" width="70%"/>
+              <p><b>sel4_thy_info.json</b> example.</p>
+            </div>
+          </div>
+
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_fvel/cases_dataset/C.1.4_sel4_session_info_json.png" alt="" width="70%"/>
+              <p><b>sel4_session_info.json</b> example.</p>
+            </div>
+          </div> -->
 
 </section>
+
+
 
 
 <!-- LEADERBAORD SECTION -->
