@@ -463,9 +463,9 @@
 
 
 <!-- RESULTS SECTION -->
-<!-- <section class="hero is-light is-small">
+<section class="hero is-light is-small">
   <div class="hero-body has-text-centered">
-    <h1 class="title is-1 mathvista">Formal Verification with FVEL and FVELer</h1>
+    <h1 class="title is-1 mathvista">Experiment Results</h1>
   </div>
 </section>
 
@@ -474,29 +474,38 @@
 
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
-        <p align="justify">
+        <!-- <p align="justify">
         Given a formal verificaiton case that is converted to an Isabelle lemma as the input, 
         The upper row shows a case in which FVEL-Mistral-7B correctly applies the lemma learned from fine-tuning, thus correcting and simplifying the proof. 
         Contrastively, Mistral-7B generates common not_eq_complement without considering a reasonable proof strategy, resulting in a failed proof. 
         In the second case, Mistral-7B rewrites the lemma statement into “assumes” and “shows” statements, according to which gives an incorrect proof. 
         FVEL-Mistral-7B, on the other hand, expands the brackets in the equation and then is able to derive contradiction according to “(bAND NOT b)”, 
         and completes the proof via the contradiction of the right-hand side of the equation.
-        </p>
+        </p> -->
 
         <div id="results-carousel" class="carousel results-carousel">          
                     
           <div class="box m-5">
             <div class="content has-text-centered">
-              <img src="static/images_fvel/cases_result/Table_4_compared_generated_proofs.png" alt="" width="100%"/>
-              <p>Generated proofs by Mistral-7B and FVEL-Mistral-7B. </p>
+              <img src="static/images_lexam/experiment_open_question.png" alt="" width="100%"/>
+              <p>Performance of models on long-form open questions and MCQs with bootstrapped standard error. </p>
             </div>
           </div>
+
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images_lexam/experiment_mc_question.png" alt="" width="100%"/>
+              <p>Model Accuracy (Acc.) and Bootstrap Standard Error (S.E.) across varying context lengths as percentages. </p>
+            </div>
+          </div>
+
+
         </div>
       </div>
     </div>
 
   </div>
-</section> -->
+</section>
 
 
 <!-- BIBTEX SECTION -->
